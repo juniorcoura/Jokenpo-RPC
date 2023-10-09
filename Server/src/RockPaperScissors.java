@@ -6,14 +6,14 @@ public class RockPaperScissors {
 
     public String getAnswer(String clientMovement) {
         if (clientMovement.equalsIgnoreCase("cancel")) {
-            return clientMovement;
+            System.exit(0);
         }
         Random rand = new Random();
         int randNum = rand.nextInt(3);
 
         String serverMove = this.movements[randNum];
-        System.out.println(clientMovement);
-        System.out.println(serverMove);
+        System.out.println("Client moment: "+clientMovement);
+        System.out.println("Server movement: "+serverMove);
         String serverAnswer = "";
 
         if (clientMovement.toLowerCase().contains(serverMove.toLowerCase())) {

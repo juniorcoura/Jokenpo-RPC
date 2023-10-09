@@ -20,14 +20,15 @@ public class ClienteRPC {
         }
     }
 
-    public String jokenpo(String message) throws Exception{
+    public String getAnswer(String message) throws Exception{
         Object[] parametr = new Object[]{new String(message)};
         String result = (String) client.execute("jkp.getAnswer", parametr);
         return result;
 
     }
 
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) throws Exception {
+        ClienteRPC client = new ClienteRPC();
+        System.out.println(client.getAnswer("cancel"));
     }
 }
