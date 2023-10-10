@@ -1,7 +1,13 @@
 {
     "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ]
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "c:\\Users\\Vertown\\Downloads\\libs\\commons-logging-1.1.jar",
+            "c:\\Users\\Vertown\\Downloads\\libs\\ws-commons-util-1.0.2.jar",
+            "c:\\Users\\Vertown\\Downloads\\libs\\xmlrpc-common-3.1.3.jar",
+            "c:\\Users\\Vertown\\Downloads\\libs\\xmlrpc-client-3.1.3.jar"
+        ]
+    }
 }

@@ -2,33 +2,26 @@ import java.net.URL;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 
-public class ClienteRPC {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
+public class ClienteRPC extends Application {
 
-    private static final String serverURL = "http://localhost:5000";
-    private XmlRpcClient client;
+    @Override
+    public void start(Stage primaryStage) throws Exception {
 
-    public ClienteRPC(){
-        try{
-            XmlRpcClientConfigImpl clientConfig = new XmlRpcClientConfigImpl();
-            clientConfig.setServerURL(new URL(serverURL));
-
-            client = new XmlRpcClient();
-            client.setConfig(clientConfig);
-        } catch(Exception e){
-            System.out.println(e);
-        }
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("layout.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene screen = new Scene(root);
+        primaryStage.setTitle("Tela básica JavaFX");
+        primaryStage.setScene(screen);
+        primaryStage.show();
     }
 
-    public String getAnswer(String message) throws Exception{
-        Object[] parametr = new Object[]{new String(message)};
-        String result = (String) client.execute("jkp.getAnswer", parametr);
-        return result;
-
-    }
-
-    public static void main(String[] args) throws Exception {
-        ClienteRPC client = new ClienteRPC();
-        System.out.println(client.getAnswer("cancel"));
+    public static void main(String[] args) {
+        launch(args);
     }
 }
